@@ -1,5 +1,5 @@
 # Dummy-python-project
-
+Hi!
 This is a simple Python project that reads numbers from a text file and calculates their sum.
 
 ## Project Files
