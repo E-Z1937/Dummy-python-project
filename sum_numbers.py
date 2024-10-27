@@ -9,15 +9,25 @@ def read_numbers(file_path):
             print("File does not exist.")
             return None
 
+        # Initialize a list to store valid numbers
+        numbers = []
         # Open the file and read each line
         with open(file_path, 'r') as file:
-            # Convert valid integer lines to a list of numbers
-            numbers = [int(line.strip()) for line in file if line.strip().isdigit()]
-        # Return the sum of all numbers
+            for line in file:
+                line = line.strip()  # Remove any whitespace around the line
+                # Check if the line is a valid integer
+                if line.isdigit():
+                    numbers.append(int(line))
+                else:
+                    # Inform user about skipping invalid lines
+                    print(f"Skipping invalid line: '{line}'")
+        
+        # Return the sum of all valid numbers
         return sum(numbers)
+    
     except Exception as e:
-        # Print any error encountered during processing
-        print("Error:", e)
+        # Print any unexpected error encountered during processing
+        print("Unexpected error:", e)
         return None
 
 # Main execution block
